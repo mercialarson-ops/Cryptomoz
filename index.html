@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Moz Pro - Exchange USDT</title>
+<style>
+:root{--primary:#0a2540;--accent:#00d395;--gold:#f5c518;--bg:#080d18;--card:#111a2d;--card2:#162040;--text:#e6edf3;--muted:#8a94a8}
+_{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,Arial,sans-serif}
+body{background:var(--bg);color:var(--text);min-height:100vh}
+.top-nav{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:rgba(17,26,45,0.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:30;border-bottom:1px solid #1e2d4a}
+.logo-area{display:flex;align-items:center;gap:10px}
+.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,#00d395,#00a3ff);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#000;font-size:18px}
+.logo-text{font-weight:800;font-size:18px}.logo-text span{color:var(--accent)}
+.btn-small{padding:8px 14px;border-radius:20px;border:1px solid #2a3a5a;background:transparent;color:var(--muted);cursor:pointer;font-weight:600;font-size:12px}
+.btn-small.active{background:var(--accent);color:#000;border-color:var(--accent)}
+.btn-admin{background:var(--gold);color:#000;font-weight:800}
+.container{max-width:500px;margin:0 auto;padding:14px;padding-bottom:100px}
+.hero{background:linear-gradient(135deg,#0a2540 0%,#11365f 50%,#00d395 100%);border-radius:20px;padding:22px;margin-bottom:14px}
+.hero h1{font-size:26px;font-weight:800}
+.hero p{font-size:13px;opacity:0.8;margin-top:6px}
+.hero-stats{display:flex;gap:10px;margin-top:16px}
+.stat{background:rgba(0,0,0,0.35);padding:12px 14px;border-radius:12px;flex:1;border:1px solid rgba(255,255,255,0.1)}
+.stat b{font-size:20px;color:#fff;display:block}
+.stat small{font-size:11px;color:rgba(255,255,255,0.7)}
+.card{background:var(--card);padding:20px;border-radius:18px;margin-bottom:14px;border:1px solid #1e2d4a}
+.card h2{color:var(--accent);margin-bottom:12px;font-size:16px;font-weight:800}
+.card h3{color:#fff;margin:14px 0 8px;font-size:14px}
+input,select{width:100%;padding:14px;margin:6px 0;border-radius:12px;border:1px solid #23324f;background:#0d1528;color:#fff;font-size:14px}
+http://button.main{width:100%;padding:15px;background:linear-gradient(135deg,var(--accent),#00a3ff);color:#000;border:none;border-radius:12px;font-weight:900;font-size:15px;cursor:pointer;margin-top:12px}
+http://button.secondary{width:100%;padding:12px;background:var(--card2);color:#fff;border:1px solid #2a3a5a;border-radius:12px;font-weight:600;margin-top:8px;cursor:pointer}
+.pay-methods{display:flex;gap:10px;margin:12px 0}
+.pay-btn{flex:1;padding:16px;border-radius:14px;border:2px solid #23324f;background:#0d1528;color:#fff;cursor:pointer;font-weight:700;text-align:center}
+.pay-btn.active{border-color:var(--accent);background:rgba(0,211,149,0.15);color:var(--accent)}
+.hidden{display:none}
+.order{background:#0d1528;padding:14px;border-radius:12px;margin:8px 0;border:1px solid #23324f;font-size:12px;line-height:1.6}
+.order.approved{border-color:var(--accent);background:rgba(0,211,149,0.08)}
+.calc{padding:14px;background:linear-gradient(135deg,var(--accent),#00a3ff);border-radius:12px;margin:12px 0;text-align:center;font-weight:900;color:#000}
+.network{display:flex;gap:8px;margin:10px 0}
+.net-btn{flex:1;padding:12px;border-radius:10px;border:1px solid #23324f;background:#0d1528;color:var(--muted);cursor:pointer;text-align:center;font-size:12px;font-weight:700}
+.net-btn.active{border-color:var(--accent);background:var(--accent);color:#000}
+.steps{display:flex;gap:6px;margin-bottom:12px}
+.step{flex:1;text-align:center;padding:8px;background:var(--card2);border-radius:10px;border:1px solid #23324f}
+.step.active{background:linear-gradient(135deg,var(--accent),#00a3ff);color:#000;border-color:var(--accent);font-weight:800}
+.progress{height:5px;background:#0d1528;border-radius:10px;margin:12px 0;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#00a3ff);transition:0.4s}
+.upload-area{border:2px dashed #2a3a5a;border-radius:14px;padding:24px;text-align:center;margin:12px 0;background:#0d1528;cursor:pointer}
+.admin-card{background:#1a1500;border:1px solid #665500}
+.admin-actions{display:flex;gap:6px;margin-top:8px}
+.btn-approve{padding:8px 12px;background:var(--accent);color:#000;border:none;border-radius:6px;font-weight:800;font-size:11px;cursor:pointer;flex:1}
+.btn-reject{padding:8px 12px;background:#ff4d4d;color:#fff;border:none;border-radius:6px;font-weight:800;font-size:11px;cursor:pointer;flex:1}
+.badge{padding:3px 8px;border-radius:20px;font-size:10px;font-weight:800;display:inline-block}
+.badge-pending{background:#332d00;color:var(--gold)}
+.badge-approved{background:#002d1f;color:var(--accent)}
+.badge-rejected{background:#2d0000;color:#ff4d4d}
+</style>
+</head>
+<body>
+<div class="top-nav">
+<div class="logo-area"><div class="logo-icon">C$</div><div class="logo-text">CRYPTO <span>MOZ</span></div></div>
+<div><button id="btnLogin" class="btn-small" onclick="showLogin()">Entrar</button><button id="btnReg" class="btn-small active" onclick="showReg()">Conta</button><button class="btn-small btn-admin" onclick="showAdmin()">Admin</button></div>
+</div>
+<div class="container">
+<div class="hero"><h1>Compre USDT em Moçambique</h1><p>Taxa justa • Entrega 2-5 min • Suporte</p><div class="hero-stats"><div class="stat"><b id="rateDisplay">71.55 MT</b><small>por 1 USDT</small></div><div class="stat"><b id="minDisplay">25 USDT</b><small id="minMTDisplay">Min 1788.75 MT</small></div><div class="stat"><b style="color:#f5c518">847566326<br>865154379</b><small>Mpesa/E-Mola</small></div></div></div>
+
+<div id="adminSection" class="card admin-card hidden">
+<h2 style="color:var(--gold)">🔐 Admin - Gestão</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><label style="font-size:11px">Taxa</label><input type="number" id="adminRate" value="71.55"></div><div><label style="font-size:11px">Mínimo</label><input type="number" id="adminMin" value="25"></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><label style="font-size:11px">M-Pesa</label><input type="text" id="adminMpesa" value="847566326"></div><div><label style="font-size:11px">E-Mola</label><input type="text" id="adminEmola" value="865154379"></div></div>
+<button class="main" style="background:var(--gold)" onclick="saveAdmin()">💾 SALVAR</button>
+<div style="margin-top:16px"><h3 style="color:var(--gold)">Pedidos (<span id="pendingCount">0</span> pendentes)</h3><div id="allOrdersAdmin"></div></div>
+</div>
+
+<div id="authSection">
+<div class="card hidden" id="loginCard"><h2>Entrar</h2><input type="text" id="loginZap" placeholder="WhatsApp"><input type="password" id="loginPass" placeholder="Senha"><button class="main" onclick="login()">ENTRAR</button></div>
+<div class="card" id="regCard"><h2>Criar conta</h2><input type="text" id="regName" placeholder="Nome"><input type="text" id="regZap" placeholder="WhatsApp 847566326"><input type="password" id="regPass" placeholder="Senha"><input type="password" id="regPass2" placeholder="Repetir senha"><button class="main" id="createBtn" onclick="register()">CRIAR CONTA →</button><div id="msg" style="text-align:center;color:var(--accent);margin-top:10px"></div></div>
+</div>
+
+<div id="mainSection" class="hidden">
+<div class="card" style="display:flex;justify-content:space-between;align-items:center"><div><h2 style="margin:0">Olá, <span id="uName"></span></h2><p style="font-size:11px;color:var(--muted)"><span id="uZap"></span></p></div><div><button class="btn-small" onclick="logout()">Sair</button><button class="btn-small active" onclick="showMyOrders()">Pedidos</button></div></div>
+
+<div class="steps"><div class="step active" id="s1"><b>1</b><small>Qtd</small></div><div class="step" id="s2"><b>2</b><small>Pagar</small></div><div class="step" id="s3"><b>3</b><small>Prova</small></div></div>
+<div class="progress"><div class="progress-fill" id="progress" style="width:33%"></div></div>
+
+<div class="card" id="cardStep1"><h2>Quanto quer?</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div><label style="font-size:10px;color:var(--muted)">USDT</label><input type="number" id="usdtAmount" placeholder="25" oninput="calcFromUSDT()"></div><div><label style="font-size:10px;color:var(--muted)">METICAL</label><input type="number" id="mtAmount" placeholder="1788.75" oninput="calcFromMT()"></div></div>
+<div id="calcResult" class="calc hidden"></div>
+<h3>Sua carteira</h3><div class="network"><div class="net-btn active" id="trc20Btn" onclick="setNetwork('TRC20')">TRC20<br><small>Tron</small></div><div class="net-btn" id="bep20Btn" onclick="setNetwork('BEP20')">BEP20<br><small>BSC</small></div></div>
+<input type="text" id="wallet" placeholder="Endereço T... ou 0x..."><p id="walletHint" style="font-size:10px;color:var(--muted)">Verifique rede <b id="hintNetwork">TRC20</b></p>
+<button class="main" onclick="goToStep2()">AVANÇAR →</button></div>
+
+<div class="card hidden" id="cardStep2"><h2>Forma pagamento</h2><div class="pay-methods"><div class="pay-btn active" id="mpesaBtn" onclick="setPay('M-Pesa')">M-Pesa<br><small id="mpesaNumDisplay">847566326</small></div><div class="pay-btn" id="emolaBtn" onclick="setPay('E-Mola')">E-Mola<br><small id="emolaNumDisplay">865154379</small></div></div><div id="paymentInfo" class="order"></div><button class="main" onclick="goToStep3()">CONTINUAR →</button><button class="secondary" onclick="goToStep1()">Voltar</button></div>
+
+<div class="card hidden" id="cardStep3"><h2>Enviar comprovativo</h2><div id="finalSummary" class="order" style="border-color:var(--accent)"></div>
+<ol style="font-size:12px;color:var(--muted);margin-left:18px;line-height:2"><li>Envie <b id="payAmount" style="color:var(--accent)">0 MT</b> para <b id="payNumber">847566326</b></li><li>Titular: Crypto Moz</li><li>Tire print</li><li>Envie abaixo</li></ol>
+<div class="upload-area" onclick="document.getElementById('proofFile').click()"><div id="uploadText">📤 Enviar comprovativo<br><small>JPG/PNG até 5MB</small></div><img id="previewImg" class="hidden" style="max-width:100%;border-radius:10px;margin-top:10px"></div>
+<input type="file" id="proofFile" accept="image/_" class="hidden" onchange="handleFile(event)">
+<input type="text" id="transactionId" placeholder="ID transação opcional">
+<button class="main" onclick="finalizarCompra()">✅ CONFIRMAR</button><button class="secondary" onclick="goToStep2()">Voltar</button></div>
+
+<div class="card hidden" id="ordersCard"><h2>Meus pedidos</h2><div id="myOrders"></div><button class="secondary" onclick="hideOrders()">Fechar</button></div>
+</div>
+</div>
+
+<script>
+let TAXA=parseFloat(localStorage.getItem('cmz_taxa')||'71.55');
+let MIN_USDT=parseFloat(localStorage.getItem('cmz_min')||'25');
+let MPESA_NUM=localStorage.getItem('cmz_mpesa')||'847566326';
+let EMOLA_NUM=localStorage.getItem('cmz_emola')||'865154379';
+let MIN_MT=TAXA_MIN_USDT;
+let currentUser=null,selectedPay='M-Pesa',selectedNetwork='TRC20',proofBase64=null;
+function updateDisplay(){document.getElementById('rateDisplay').textContent=TAXA.toFixed(2)+' MT';document.getElementById('minDisplay').textContent=MIN_USDT+' USDT';document.getElementById('minMTDisplay').textContent='Min '+MIN_MT.toFixed(2)+' MT';document.getElementById('mpesaNumDisplay').textContent=MPESA_NUM;document.getElementById('emolaNumDisplay').textContent=EMOLA_NUM;document.getElementById('adminRate').value=TAXA;document.getElementById('adminMin').value=MIN_USDT;document.getElementById('adminMpesa').value=MPESA_NUM;document.getElementById('adminEmola').value=EMOLA_NUM;MIN_MT=TAXA_MIN_USDT;let orders=JSON.parse(localStorage.getItem('csmz_all_orders')||'[]');document.getElementById('pendingCount').textContent=orders.filter(o=>o.status.includes('Aguardando')).length;}
+function showAdmin(){document.getElementById('adminSection').classList.toggle('hidden');renderAdminOrders();}
+function saveAdmin(){TAXA=parseFloat(document.getElementById('adminRate').value)||71.55;MIN_USDT=parseFloat(document.getElementById('adminMin').value)||25;MPESA_NUM=document.getElementById('adminMpesa').value;EMOLA_NUM=document.getElementById('adminEmola').value;localStorage.setItem('cmz_taxa',TAXA);localStorage.setItem('cmz_min',MIN_USDT);localStorage.setItem('cmz_mpesa',MPESA_NUM);localStorage.setItem('cmz_emola',EMOLA_NUM);updateDisplay();alert('Salvo!');document.getElementById('adminSection').classList.add('hidden');}
+function showReg(){document.getElementById('loginCard').classList.add('hidden');document.getElementById('regCard').classList.remove('hidden');document.getElementById('btnLogin').classList.remove('active');document.getElementById('btnReg').classList.add('active');}
+function showLogin(){document.getElementById('regCard').classList.add('hidden');document.getElementById('loginCard').classList.remove('hidden');document.getElementById('btnReg').classList.remove('active');document.getElementById('btnLogin').classList.add('active');}
+function setNetwork(n){selectedNetwork=n;document.getElementById('trc20Btn').classList.toggle('active',n==='TRC20');document.getElementById('bep20Btn').classList.toggle('active',n==='BEP20');document.getElementById('hintNetwork').textContent=n;}
+function setPay(m){selectedPay=m;document.getElementById('mpesaBtn').classList.toggle('active',m==='M-Pesa');document.getElementById('emolaBtn').classList.toggle('active',m==='E-Mola');updatePayInfo();}
+function calcFromMT(){let mt=parseFloat(document.getElementById('mtAmount').value)||0;let d=document.getElementById('calcResult');let uIn=document.getElementById('usdtAmount');if(mt>0){let us=(mt/TAXA).toFixed(2);uIn.value=us;d.classList.remove('hidden');d.innerHTML=mt>=MIN_MT?`✅ ${us} USDT por ${mt.toFixed(2)} MT`:`⚠️ Mínimo ${MIN_USDT} USDT`;}}
+function calcFromUSDT(){let us=parseFloat(document.getElementById('usdtAmount').value)||0;let d=document.getElementById('calcResult');let mtIn=document.getElementById('mtAmount');if(us>0){let mt=(us*TAXA).toFixed(2);mtIn.value=mt;d.classList.remove('hidden');d.innerHTML=us>=MIN_USDT?`✅ Pague ${mt} MT para ${us} USDT`:`⚠️ Mínimo ${MIN_USDT} USDT`;}}
+function goToStep1(){document.getElementById('cardStep1').classList.remove('hidden');document.getElementById('cardStep2').classList.add('hidden');document.getElementById('cardStep3').classList.add('hidden');document.getElementById('s1').classList.add('active');document.getElementById('s2').classList.remove('active');document.getElementById('s3').classList.remove('active');document.getElementById('progress').style.width='33%';}
+function goToStep2(){let us=parseFloat(document.getElementById('usdtAmount').value)||0,w=document.getElementById('wallet').value.trim();if(us<MIN_USDT){alert('Mínimo '+MIN_USDT);return;}if(w.length<10){alert('Endereço obrigatório');return;}document.getElementById('cardStep1').classList.add('hidden');document.getElementById('cardStep2').classList.remove('hidden');document.getElementById('s1').classList.remove('active');document.getElementById('s2').classList.add('active');document.getElementById('progress').style.width='66%';updatePayInfo();}
+function goToStep3(){document.getElementById('cardStep2').classList.add('hidden');document.getElementById('cardStep3').classList.remove('hidden');document.getElementById('s2').classList.remove('active');document.getElementById('s3').classList.add('active');document.getElementById('progress').style.width='100%';let us=document.getElementById('usdtAmount').value,mt=document.getElementById('mtAmount').value,w=document.getElementById('wallet').value;document.getElementById('finalSummary').innerHTML=`${us} USDT (${selectedNetwork})<br>${mt} MT via ${selectedPay}`;document.getElementById('payAmount').textContent=mt+' MT';document.getElementById('payNumber').textContent=selectedPay==='M-Pesa'?MPESA_NUM:EMOLA_NUM;}
+function updatePayInfo(){let us=document.getElementById('usdtAmount').value||0,mt=document.getElementById('mtAmount').value||0,num=selectedPay==='M-Pesa'?MPESA_NUM:EMOLA_NUM;document.getElementById('paymentInfo').innerHTML=`Pagar <b>${mt} MT</b> → <b>${us} USDT (${selectedNetwork})</b><br>Número ${selectedPay}: <b>${num}</b>`;}
+function handleFile(e){let f=e.target.files;if(!f)return;let r=new FileReader();r.onload=ev=>{proofBase64=ev.target.result;document.getElementById('previewImg').src=proofBase64;document.getElementById('previewImg').classList.remove('hidden');document.getElementById('uploadText').innerHTML='✅ Carregado';};r.readAsDataURL(f);}
+function register(){let n=document.getElementById('regName').value.trim(),z=document.getElementById('regZap').value.trim(),p=document.getElementById('regPass').value.trim(),p2=document.getElementById('regPass2').value.trim(),b=document.getElementById('createBtn');if(!n||!z||p.length<4||p!==p2){alert('Verifique dados');return;}b.innerHTML='CRIANDO...';try{let users=JSON.parse(localStorage.getItem('csmz_all_users')||'[]');if(users.find(u=>u.zap===z)){alert('Já existe');showLogin();b.innerHTML='CRIAR CONTA →';return;}let user={name:n,zap:z,pass:p,date:new Date().toLocaleString(),id:Date.now()};users.push(user);localStorage.setItem('csmz_all_users',JSON.stringify(users));localStorage.setItem('csmz_user',JSON.stringify(user));setTimeout(()=>updateUI(),500);}catch(e){alert(e.message);}}
+function login(){let z=document.getElementById('loginZap').value.trim(),p=document.getElementById('loginPass').value.trim(),users=JSON.parse(localStorage.getItem('csmz_all_users')||'[]'),u=users.find(x=>x.zap===z);if(!u||u.pass!==p){alert('Erro login');return;}localStorage.setItem('csmz_user',JSON.stringify(u));updateUI();}
+function logout(){localStorage.removeItem('csmz_user');updateUI();showLogin();goToStep1();}
+function finalizarCompra(){let mt=parseFloat(document.getElementById('mtAmount').value)||0,us=parseFloat(document.getElementById('usdtAmount').value)||0;if(!proofBase64){alert('Envie comprovativo');return;}let w=document.getElementById('wallet').value.trim(),tx=document.getElementById('transactionId').value.trim();let order={id:'ORD'+Date.now(),cliente:currentUser.name,zap:currentUser.zap,enviou:mt,receber:us,wallet:w,network:selectedNetwork,pay:selectedPay,txId:tx,date:new Date().toLocaleString(),status:'Aguardando confirmação'};let list=JSON.parse(localStorage.getItem('csmz_all_orders')||'[]');list.unshift(order);localStorage.setItem('proof_'+order.id,proofBase64);localStorage.setItem('csmz_all_orders',JSON.stringify(list));alert('Pedido enviado!');renderMyOrders();goToStep1();}
+function renderMyOrders(){if(!currentUser)return;let orders=JSON.parse(localStorage.getItem('csmz_all_orders')||'[]'),mine=orders.filter(o=>o.zap===currentUser.zap);document.getElementById('myOrders').innerHTML=mine.length?mine.map(o=>`<div class="order"><b>${o.id}</b> ${o.status}<br>${o.enviou}MT → ${o.receber} USDT ${o.network} via ${o.pay}<br>${o.date}</div>`).join(''):'Nenhum';}
+function renderAdminOrders(){let orders=JSON.parse(localStorage.getItem('csmz_all_orders')||'[]');document.getElementById('allOrdersAdmin').innerHTML=orders.length?orders.map(o=>{let proof=localStorage.getItem('proof_'+o.id);return `<div class="order"><b>${o.id}</b> - ${o.status}<br>Cliente: ${o.cliente} (${o.zap})<br>${o.enviou}MT → ${o.receber} USDT ${o.network}<br>Wallet: ${o.wallet}<br>${o.pay} | ${o.date}<br>${proof?`<img src="${proof}" style="max-width:100%;max-height:120px;border-radius:8px">`:''}<div class="admin-actions"><button class="btn-approve" onclick="approveOrder('${o.id}')">APROVAR</button><button class="btn-reject" onclick="rejectOrder('${o.id}')">REJEITAR</button></div></div>`}).join(''):'Nenhum';updateDisplay();}
+function approveOrder(id){let orders=JSON.parse(localStorage.getItem('csmz_all_orders')||'[]');let o=orders.find(x=>x.id===id);o.status='Aprovado - USDT enviado';localStorage.setItem('csmz_all_orders',JSON.stringify(orders));try{window.open(`https://wa.me/${o.zap}?text=Pedido ${o.id} APROVADO ${o.receber} USDT enviado!`,'_blank');}catch(e){}renderAdminOrders();renderMyOrders();}
+function rejectOrder(id){let r=prompt('Motivo?');let orders=JSON.parse(localStorage.getItem('csmz_all_orders')||'[]');let o=orders.find(x=>x.id===id);o.status='Rejeitado - '+(r||'');localStorage.setItem('csmz_all_orders',JSON.stringify(orders));renderAdminOrders();renderMyOrders();}
+function showMyOrders(){document.getElementById('ordersCard').classList.remove('hidden');renderMyOrders();}
+function hideOrders(){document.getElementById('ordersCard').classList.add('hidden');}
+function updateUI(){let saved=localStorage.getItem('csmz_user');if(saved){currentUser=JSON.parse(saved);document.getElementById('authSection').classList.add('hidden');document.getElementById('mainSection').classList.remove('hidden');document.getElementById('uName').textContent=currentUser.name;document.getElementById('uZap').textContent=currentUser.zap;renderMyOrders();}else{document.getElementById('authSection').classList.remove('hidden');document.getElementById('mainSection').classList.add('hidden');}updateDisplay();}
+updateUI();
+</script>
+</body>
+</html>[0]
